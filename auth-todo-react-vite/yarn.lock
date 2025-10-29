@@ -437,6 +437,25 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
+"@kinde-oss/kinde-auth-react@^5.9.0":
+  version "5.9.0"
+  resolved "https://registry.yarnpkg.com/@kinde-oss/kinde-auth-react/-/kinde-auth-react-5.9.0.tgz#e40054ff1e6bbf011a8c9e71339e45c61393e4dc"
+  integrity sha512-16N5wWEXfo6u/JOU2Rp1+TUFfKcUJpYBpBN/GQ3I743R2CIW31+gDTxFQt4rMvD0FGQMyIbz0xhxZw9h3vE9Fg==
+  dependencies:
+    "@kinde/js-utils" "0.27.0"
+
+"@kinde/js-utils@0.27.0":
+  version "0.27.0"
+  resolved "https://registry.yarnpkg.com/@kinde/js-utils/-/js-utils-0.27.0.tgz#06752dcbcdf335a5a65bc4c90190cfcf628dbf03"
+  integrity sha512-4ireFvGhzVbR7V0nacJd/K7fqJOwYeUEKXYgHPODaNzANCTlCYb64+6KfPx/qUw4pu02/xyuqhcbaDVhP1xByA==
+  dependencies:
+    "@kinde/jwt-decoder" "^0.2.0"
+
+"@kinde/jwt-decoder@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@kinde/jwt-decoder/-/jwt-decoder-0.2.0.tgz#1b18d58d75293aa48934075b0442b2403f423507"
+  integrity sha512-dqtwCmAvywOVLkkUfp4UbqdvVLsK0cvHsJhU3gDY9rgjAdZhGw0vCreBW6j3MFLxbi6cZm7pMU7/O5SJgvN5Rw==
+
 "@napi-rs/wasm-runtime@^1.0.7":
   version "1.0.7"
   resolved "https://registry.yarnpkg.com/@napi-rs/wasm-runtime/-/wasm-runtime-1.0.7.tgz#dcfea99a75f06209a235f3d941e3460a51e9b14c"
