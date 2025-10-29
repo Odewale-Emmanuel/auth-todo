@@ -1,13 +1,8 @@
 import { DeleteButton } from "./DeleteButton";
 import { useState } from "react";
+import type { TodoType } from "../types/Todo";
 
-type Todo = {
-  id: string;
-  value: string;
-  isCompleted: boolean;
-};
-
-const Todos: Todo[] = [
+const Todos: TodoType[] = [
   {
     id: crypto.randomUUID(),
     value: "get a house",
