@@ -1,1 +1,47 @@
 @import "tailwindcss";
+
+.font-nunito-sans {
+  font-family: "Nunito Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: "wdth" 100, "YTLC" 500;
+}
+
+.font-cabin {
+  font-family: "Cabin", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
+.font-figtree {
+  font-family: "Figtree", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+@media (max-height: 950px) {
+  h1 {
+    top: 5%;
+  }
+}
+@media (max-height: 916px) {
+  h1 {
+    top: 3.5%;
+  }
+}
+@media (max-height: 883px) {
+  h1 {
+    top: 2.5%;
+  }
+}
+@media (max-height: 850px) {
+  h1 {
+    top: 0%;
+  }
+}
+@media (max-height: 800px) {
+  h1 {
+    top: -3%;
+  }
+}
