@@ -3,6 +3,7 @@ import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
 import { TodoList } from "./components/TodoList";
 import { SideBar } from "./components/SideBar";
+import { Toaster } from "sonner";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       </main>
 
       <Footer />
+      <Toaster position="top-right" richColors closeButton />
     </div>
   );
 }
