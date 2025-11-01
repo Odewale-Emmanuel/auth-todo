@@ -8,7 +8,7 @@ export function DeleteButton({ onClick }: { onClick: () => void }) {
 
   return (
     <Button
-      className="p-0.5 hover:cursor-pointer"
+      className="p-0.5 hover:cursor-pointer opacity-10 group-hover:opacity-100"
       onClick={(e) => handleClick(e)}
     >
       ❌

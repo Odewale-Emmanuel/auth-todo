@@ -1,54 +1,39 @@
 import { DeleteButton } from "./DeleteButton";
-import { useState } from "react";
 import type { TodoType } from "../types/Todo";
-
-const Todos: TodoType[] = [
-  {
-    id: crypto.randomUUID(),
-    value: "get a house",
-    isCompleted: true,
-  },
-  {
-    id: crypto.randomUUID(),
-    value: "own a PJ",
-    isCompleted: true,
-  },
-  {
-    id: crypto.randomUUID(),
-    value: "own a Yatch",
-    isCompleted: false,
-  },
-];
+import { useTodoContext } from "../hooks/useTodo";
 
 export function TodoList() {
-  const [todos, setTodos] = useState(Todos);
-
-  function handleDelete(id: string): void {
-    setTodos((prevTodo) => [...prevTodo].filter((todo) => todo.id !== id));
-  }
-
-  function handleTodoCompletionState(id: string): void {
-    setTodos((prevTodo) =>
-      prevTodo.map((todo) =>
-        todo.id == id ? { ...todo, isCompleted: !todo.isCompleted } : todo
-      )
-    );
-  }
-
+  const { todos, totalTodo, handleToggleTodo, handleDeleteTodo } =
+    useTodoContext();
   return (
-    <ul>
-      {todos.map((todo) => (
+    <ul className="overflow-y-auto">
+      {totalTodo <= 0 && (
+        <li className="h-full flex items-center justify-center font-semibold text-gray-400">
+          start by adding a todo
+        </li>
+      )}
+
+      {todos.map((todo: TodoType, index: number) => (
         <li
           key={todo.id}
-          className="flex items-center justify-between gap-1.5 text-[14px] px-8 py-3 hover:cursor-pointer border-b border-black/[0.08]"
-          onClick={() => handleTodoCompletionState(todo.id)}
+          className="group flex items-center gap-2.5 text-[14px] px-8 py-3 hover:cursor-pointer border-b border-black/[0.08]"
+          onClick={() => handleToggleTodo(todo.id)}
         >
           <span
-            className={`${todo.isCompleted ? "line-through text-[#ccc]" : ""}`}
+            className={`font-semibold  ${
+              todo.isCompleted ? "text-[#ccc]" : "text-black"
+            }`}
+          >
+            {index + 1}
+          </span>
+          <span
+            className={`mr-auto ${
+              todo.isCompleted ? "line-through text-[#ccc]" : ""
+            }`}
           >
             {todo.value}
           </span>
-          <DeleteButton onClick={() => handleDelete(todo.id)} />{" "}
+          <DeleteButton onClick={() => handleDeleteTodo(todo.id)} />{" "}
         </li>
       ))}
     </ul>
