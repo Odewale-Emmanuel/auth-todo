@@ -22,7 +22,6 @@ export function AddTodoForm() {
       try {
         handleAddNewTodo(todoText);
         setTodoText("");
-        toast.success("Todo added successfully");
       } catch (error) {
         console.error(error);
         toast.error("Error: couldn't add todo");

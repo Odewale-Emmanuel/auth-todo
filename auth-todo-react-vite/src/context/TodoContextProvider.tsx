@@ -1,6 +1,7 @@
 import { useState, createContext } from "react";
 import type { TodoType } from "../types/Todo";
 import { toast } from "sonner";
+import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
 
 export type TodoContextValue = {
   todos: TodoType[];
@@ -20,6 +21,7 @@ export function TodoContextProvider({
   children: React.ReactNode;
 }) {
   const [todos, setTodos] = useState<TodoType[]>([]);
+  const { isAuthenticated } = useKindeAuth();
 
   const totalTodo: number = todos.length;
   const completedTodo: number = todos.filter((todo) => todo.isCompleted).length;
@@ -30,14 +32,20 @@ export function TodoContextProvider({
   }
 
   function handleAddNewTodo(value: string) {
-    setTodos([
-      ...todos,
-      {
-        id: crypto.randomUUID(),
-        value,
-        isCompleted: false,
-      },
-    ]);
+    if (todos.length >= 3 && !isAuthenticated) {
+      toast.warning("Oops: please register or login to add more todos");
+      return;
+    } else {
+      setTodos([
+        ...todos,
+        {
+          id: crypto.randomUUID(),
+          value,
+          isCompleted: false,
+        },
+      ]);
+      toast.success("Todo added successfully");
+    }
   }
 
   function handleToggleTodo(id: string): void {
