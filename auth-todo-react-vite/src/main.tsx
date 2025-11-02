@@ -10,8 +10,8 @@ createRoot(document.getElementById("root")!).render(
     <KindeProvider
       clientId="20b3e7f34c9249708c4baa48d5b55651"
       domain="https://authtodo.kinde.com"
-      redirectUri={"https://auth-todo-vite.vercel.app/"}
-      logoutUri={"https://auth-todo-vite.vercel.app/"}
+      redirectUri={"https://auth-todo-vite.vercel.app"}
+      logoutUri={"https://auth-todo-vite.vercel.app"}
     >
       <TodoContextProvider>
         <App />
